@@ -1,6 +1,11 @@
 from solcx import compile_standard, install_solc
 import json
 from web3 import Web3
+from dotenv import load_dotenv 
+import os
+
+load_dotenv()
+
 with open("../SampleProject/SimpleStorage.sol","r") as files:
     simple_storage_files=files.read()
     
@@ -33,8 +38,23 @@ abi = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]
 w3=Web3(Web3.HTTPProvider("https://0.0.0.:8545"))
 chain_id=1337
 my_address = "0xBCFdd6639E642EAb113558bED1AFbF016C4F65d3"
-private_key="0x98d5ff31a6164625d248c77ef1609098e1107c5a15cce3dcc1ae772d7fad270f"
+private_key=os.environ["PRIVATE_KEY"]
 
 #Create the contract in python
 SimpleStorage=w3.eth.contract(abi=abi,bytecode=bytecode)
-print(SimpleStorage)
+# Get the latest transcation
+nonce=w3.eth.getTransactionCount(my_address)
+
+
+transaction= SimpleStorage.constructor().buildTransaction(
+    {
+        "chainId": chain_id,
+        "from": my_address,
+        "nonce":nonce
+    }
+)
+
+signed_txn=w3.eth.account.sign_transaction(transaction,private_key=private_key)
+#Send this signed transaction
+tx_hash=w3.eth.send_raw_transaction(signed_txn.rawTransaction)
+tx_receipt=w3.eth.wait_for_transaction_receipt(tx_hash)
