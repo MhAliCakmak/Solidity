@@ -1,3 +1,5 @@
 {
-    "editor.guides.bracketPairs": "active"
+    "editor.guides.bracketPairs": "active",
+    "solidity.defaultCompiler": "localNodeModule",
+    "solidity.compileUsingRemoteVersion": "latest"
 }
