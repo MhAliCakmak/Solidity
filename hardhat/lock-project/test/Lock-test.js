@@ -82,12 +82,25 @@ describe("Lock Contract", function(){
             expect(balances[0]).to.be.equal(ethToNum(await lock.lockers(user1.address)));
 
         });
-        it("Locker count and locked amount increase", async function(){});
-        it("user2 cannot withdraw tokens", async function(){});
-        it("user1 can withdraw tokens", async function(){});
-        it("Locker count and locked amount decrease", async function(){});
-        it("user1 posistion deleted", async function(){});
-        it("user1 cannot withdraw more tokens", async function(){});   
+        
+        it("Locker count and locked amount increase", async function(){
+            except(lockerCount).to.be.equal(await lock.lockerCount());
+            expect(totalLocked).to.be.equal(ethToNum(await lock.totalLocked()));
+        });
+        
+        it("user2 cannot withdraw tokens", async function(){
+            except(lock.connect(user2).witdrawToken).to.be.reverted;
+        });
+
+        it("user1 can withdraw tokens", async function(){
+            totalLocked-=userLocks[0];
+            userLocks[0]=0;
+            await lock.connect(user1).witdrawToken();
+            expect(balances[3]).to.be.equal(ethToNum(await token.balanceOf(lock.address)));
+            expect(balances[0]).to.be.equal(ethToNum(await lock.lockers(user1.address)));
+
+        });
+          
     });
     
     it("prints timestamp", async function(){
