@@ -1,0 +1,142 @@
+{
+  "contracts": {
+    "SafeMath": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "Token": "98ae4b61ce463a902c6dd82e2bd5202138a80b03"
+  },
+  "tests": {
+    "tests/test_approve.py": {
+      "coverage": false,
+      "isolated": [
+        "SafeMath",
+        "Token"
+      ],
+      "results": "............",
+      "sha1": "e65323184fc60c3fd126b914890ccada65c44081",
+      "txhash": []
+    },
+    "tests/test_transfer.py": {
+      "coverage": false,
+      "isolated": [
+        "SafeMath",
+        "Token"
+      ],
+      "results": ".........",
+      "sha1": "abfe5f157e00626fc0395515513ee5e44de754da",
+      "txhash": [
+        "986e8c0aecf143acfe9de4d7a9cdd5e37899f542"
+      ]
+    },
+    "tests/test_transferFrom.py": {
+      "coverage": false,
+      "isolated": [
+        "SafeMath",
+        "Token"
+      ],
+      "results": ".................",
+      "sha1": "282ea7cfa69acdbc928005cad67e508d84492de2",
+      "txhash": [
+        "466a5e7d4dd18f59038427a0ec801674da40a06b",
+        "6c15cac587d7bde94c0bb33b9d65073925252eed",
+        "6eb9528e11a655421b57cf1710c330b4d70fe2eb",
+        "95facaf7491bae1260173d35c511e00408985b52",
+        "de28f480d8f4d40927af4588d0eb9584156ef852"
+      ]
+    }
+  },
+  "tx": {
+    "466a5e7d4dd18f59038427a0ec801674da40a06b": {
+      "Token": {
+        "1": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    },
+    "6c15cac587d7bde94c0bb33b9d65073925252eed": {
+      "Token": {
+        "1": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    },
+    "6eb9528e11a655421b57cf1710c330b4d70fe2eb": {
+      "Token": {
+        "1": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    },
+    "95facaf7491bae1260173d35c511e00408985b52": {
+      "Token": {
+        "0": [
+          [
+            11,
+            12
+          ],
+          [],
+          [
+            21
+          ]
+        ],
+        "1": [
+          [
+            3,
+            4,
+            5,
+            13
+          ],
+          [
+            20
+          ],
+          [
+            19
+          ]
+        ]
+      }
+    },
+    "986e8c0aecf143acfe9de4d7a9cdd5e37899f542": {
+      "Token": {
+        "1": [
+          [
+            8,
+            13
+          ],
+          [
+            20
+          ],
+          []
+        ]
+      }
+    },
+    "de28f480d8f4d40927af4588d0eb9584156ef852": {
+      "Token": {
+        "1": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    }
+  }
+}
